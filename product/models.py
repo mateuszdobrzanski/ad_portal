@@ -30,6 +30,7 @@ class Product(models.Model):
     slug = models.SlugField(blank=True,
                             null=True)
 
+    # create slug using name field when saving object
     def save(self, *args, **kwargs):
         if not self.slug and self.name:
             self.slug = slugify(self.name)
