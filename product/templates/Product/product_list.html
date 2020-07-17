@@ -6,7 +6,8 @@
 </head>
 <body>
     {% for product in product_list %}
-        <h3>{{product}}</h3>
+        <!-- products is from namespace included in ad_portal/urls.py -->
+        <h3><a href="{% url 'products:product_detail' product.slug%}">{{product}}</a></h3>
     {% endfor %}
 </body>
 </html>

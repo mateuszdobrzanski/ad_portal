@@ -15,8 +15,9 @@ def product_list(request):
     return render(request, template, context)
 
 
-def product_detail(request, id):
-    product = Product.objects.get(id=id)
+def product_detail(request, product_slug):
+    # when we use slug field instead of using "id" we use "slug=" and slug tag
+    product = Product.objects.get(slug=product_slug)
     template = 'Product/product_detail.html'
     context = {'product_detail': product}
 
