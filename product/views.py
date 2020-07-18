@@ -22,3 +22,8 @@ def product_detail(request, product_slug):
     context = {'product_detail': product}
 
     return render(request, template, context)
+
+
+def redirect(request):
+    return render(request,
+                  'base.html')

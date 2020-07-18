@@ -56,7 +56,10 @@ ROOT_URLCONF = 'ad_portal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #
+        # point in 'DIRS' var, when we hold the global templates for our project
+        #
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
