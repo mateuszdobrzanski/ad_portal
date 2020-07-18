@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Product, ProductImage
 
 
 def product_list(request):
@@ -18,8 +18,12 @@ def product_list(request):
 def product_detail(request, product_slug):
     # when we use slug field instead of using "id" we use "slug=" and slug tag
     product = Product.objects.get(slug=product_slug)
+    # filter all product images using id
+    product_images = ProductImage.objects.filter(product=product)
+
     template = 'Product/product_detail.html'
-    context = {'product_detail': product}
+    context = {'product_detail': product,
+               'product_images': product_images}
 
     return render(request, template, context)
 

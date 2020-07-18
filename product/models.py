@@ -13,6 +13,11 @@ class Product(models.Model):
         ("damaged", "Damaged product")
     )
     name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='product/images/main_product_images',
+                              # when we have no image, we use default image
+                              default='product/images/default_images/no-image.png',
+                              blank=True,
+                              null=True)
     owner = models.ForeignKey(User,
                               on_delete=models.CASCADE)
     description = models.TextField(max_length=500)
@@ -41,7 +46,7 @@ class Product(models.Model):
         return self.name
 
 
-# Images handler for product model
+# Images handler for product model (more than one image ?)
 class ProductImage(models.Model):
     product = models.ForeignKey(Product,
                                 on_delete=models.CASCADE)
