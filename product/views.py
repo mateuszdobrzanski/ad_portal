@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from .models import Product, ProductImage
 
 
@@ -9,6 +10,11 @@ def product_list(request):
     # print(products)
 
     template = 'Product/product_list.html'
+
+    # show 2 products per page
+    paginator = Paginator(products, 2)
+    page = request.GET.get('page')
+    products = paginator.get_page(page)
 
     context = {'product_list': products}
 
