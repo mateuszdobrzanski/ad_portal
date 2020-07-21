@@ -7,6 +7,8 @@ from django.db.models import Count
 def product_list(request):
     # retrieve all products and categories
     products = Product.objects.all()
+
+    # in bracket we count the offers and we use 'total_products' var to display no. product in each categories
     categories = Category.objects.annotate(total_products=Count('product'))
     # get in console our query list (list of objects from db)
     # print(products)
