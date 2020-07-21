@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Product, ProductImage, Category
+from django.db.models import Count
 
 
 def product_list(request):
     # retrieve all products and categories
     products = Product.objects.all()
-    categories = Category.objects.all()
+    categories = Category.objects.annotate(total_products=Count('product'))
     # get in console our query list (list of objects from db)
     # print(products)
 

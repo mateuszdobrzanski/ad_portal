@@ -426,7 +426,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<ul class="all-cat-list">
 
 					{% for category in category_list %}
-						<li><a href="mobiles.html">{{ category }} <span class="num-of-ads">(5,78,076)</span></a></li>
+						<li><a href="mobiles.html">{{ category }} <span class="num-of-ads">({{ category.total_products }})</span></a></li>
 					{% endfor %}
 
 				</ul>
