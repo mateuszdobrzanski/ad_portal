@@ -66,6 +66,15 @@ class Category(models.Model):
                               blank=True,
                               null=True)
 
+    slug = models.SlugField(blank=True,
+                            null=True)
+
+    # create slug using category_name field when saving object
+    def save(self, *args, **kwargs):
+        if not self.slug and self.category_name:
+            self.slug = slugify(self.category_name)
+        super(Category, self).save(*args, *kwargs)
+
     # display correctly plural form of class name
     class Meta:
         verbose_name = 'category'

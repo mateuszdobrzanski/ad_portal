@@ -4,7 +4,7 @@ from .models import Product, ProductImage, Category
 from django.db.models import Count
 
 
-def product_list(request):
+def product_list(request, category_slug=None):
     # retrieve all products and categories
     products = Product.objects.all()
 
