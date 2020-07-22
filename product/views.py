@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Product, ProductImage, Category
 from django.db.models import Count
+# for complex search
+from django.db.models import Q
+from django.shortcuts import get_object_or_404
 
 
 def product_list(request, category_slug=None):
@@ -17,8 +20,29 @@ def product_list(request, category_slug=None):
 
     # get category and show products filtered by returned category
     if category_slug:
-        category = Category.objects.get(slug=category_slug)
+        # category = Category.objects.get(slug=category_slug)
+        category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+
+    # page = request.GET.get('page')
+
+    # search
+    search_query = request.GET.get('q')
+    if search_query:
+        # print(search_query)
+        products = products.filter(
+            Q(name__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(condition__icontains=search_query) |
+            # bellow, we have relationship between Product model and Brand model,
+            # to search 'brand' in field with relationship we should use at first primary model field (brand in Product)
+            # and next, we use second model's field (brand_name) in secondary model (Brand)
+            Q(brand__brand_name__icontains=search_query)
+        )
+
+
+
+    print(products)
 
     # show 2 products per page
     paginator = Paginator(products, 2)
@@ -37,7 +61,8 @@ def product_list(request, category_slug=None):
 
 def product_detail(request, product_slug):
     # when we use slug field instead of using "id" we use "slug=" and slug tag
-    product = Product.objects.get(slug=product_slug)
+    # product = Product.objects.get(slug=product_slug)
+    product = get_object_or_404(Product, slug=product_slug)
     # filter all product images using id
     product_images = ProductImage.objects.filter(product=product)
 

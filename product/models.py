@@ -45,6 +45,9 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['id']
+
 
 # Images handler for product model (more than one image ?)
 class ProductImage(models.Model):
