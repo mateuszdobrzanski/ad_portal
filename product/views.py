@@ -15,16 +15,12 @@ def product_list(request, category_slug=None):
 
     # in bracket we count the offers and we use 'total_products' var to display no. product in each categories
     categories = Category.objects.annotate(total_products=Count('product'))
-    # get in console our query list (list of objects from db)
-    # print(products)
 
     # get category and show products filtered by returned category
     if category_slug:
         # category = Category.objects.get(slug=category_slug)
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
-
-    # page = request.GET.get('page')
 
     # search
     search_query = request.GET.get('q')
@@ -39,10 +35,6 @@ def product_list(request, category_slug=None):
             # and next, we use second model's field (brand_name) in secondary model (Brand)
             Q(brand__brand_name__icontains=search_query)
         )
-
-
-
-    print(products)
 
     # show 2 products per page
     paginator = Paginator(products, 2)
