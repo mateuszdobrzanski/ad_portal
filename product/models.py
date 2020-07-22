@@ -38,8 +38,9 @@ class Product(models.Model):
     # create slug using name field when saving object
     def save(self, *args, **kwargs):
         if not self.slug and self.name:
-            # create slug using two different fields, in this case id and product name
-            self.slug = '-'.join((slugify(self.id), slugify(self.name)))
+            # create slug using two different fields, in this case name and created date
+
+            self.slug = '-'.join((slugify(self.name), slugify(self.created)))
         super(Product, self).save(*args, *kwargs)
 
     def __str__(self):
