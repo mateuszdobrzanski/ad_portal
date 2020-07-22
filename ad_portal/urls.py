@@ -25,7 +25,7 @@ urlpatterns = [
     # register namespace
     path('products/', include(('product.urls', 'product'), namespace='products')),
     # redirect main page
-    path('', views.redirect),
+    path('', views.home),
 ]
 
 # static files

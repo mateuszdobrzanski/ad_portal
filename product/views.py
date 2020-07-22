@@ -5,6 +5,8 @@ from django.db.models import Count
 
 
 def product_list(request, category_slug=None):
+    category = None
+
     # retrieve all products and categories
     products = Product.objects.all()
 
@@ -13,16 +15,21 @@ def product_list(request, category_slug=None):
     # get in console our query list (list of objects from db)
     # print(products)
 
-    template = 'Product/product_list.html'
+    # get category and show products filtered by returned category
+    if category_slug:
+        category = Category.objects.get(slug=category_slug)
+        products = products.filter(category=category)
 
     # show 2 products per page
     paginator = Paginator(products, 2)
     page = request.GET.get('page')
-    products = paginator.get_page(page)
 
+    products = paginator.get_page(page)
+    template = 'Product/product_list.html'
     context = {
         'product_list': products,
         'category_list': categories,
+        'category': category,
     }
 
     return render(request, template, context)
@@ -34,6 +41,8 @@ def product_detail(request, product_slug):
     # filter all product images using id
     product_images = ProductImage.objects.filter(product=product)
 
+    print(product.category.slug)
+
     template = 'Product/product_detail.html'
     context = {'product_detail': product,
                'product_images': product_images}
@@ -41,6 +50,6 @@ def product_detail(request, product_slug):
     return render(request, template, context)
 
 
-def redirect(request):
+def home(request):
     return render(request,
                   'base.html')
