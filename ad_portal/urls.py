@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # register namespace
     path('products/', include(('product.urls', 'product'), namespace='products')),
+    path('accounts/', include(('accounts.urls', 'accounts'), namespace='accounts')),
     # redirect main page
     path('', views.home),
 ]
