@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-    <p>login</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>{{form}}</p>
+        <button type="submit" class="btn btn-primary">sign in</button>
+    </form>
 </body>
 </html>
