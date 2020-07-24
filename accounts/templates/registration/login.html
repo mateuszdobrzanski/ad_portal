@@ -18,15 +18,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<form method="POST">
                                 {% csrf_token %}
                                 <div class="log-input">
-                                    <div class="log-input-left">
-                                       <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" class="user" required="" id="id_username" placeholder="Your Email">
-                                    </div>
+									<input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" class="user" required="" id="id_username" placeholder="Your username">
                                     <div class="clearfix"> </div>
                                 </div>
                                 <div class="log-input">
-                                    <div class="log-input-left">
-                                      <input type="password" class="lock" name="password" autocomplete="current-password" required="" id="id_password" placeholder="password">
-                                    </div>
+									<input type="password" class="lock" name="password" autocomplete="current-password" required="" id="id_password" placeholder="password">
                                     <div class="clearfix"> </div>
                                 </div>
                                 <input type="submit" value="Log in">

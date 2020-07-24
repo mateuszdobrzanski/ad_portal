@@ -90,6 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		</div>
 	</div>
+	{% if not request.get_full_path == "/accounts/login/" and not request.get_full_path == "/accounts/logout/" and not request.get_full_path == "/accounts/password_change/" and not request.get_full_path == "/accounts/password_reset/" %}
 	<div class="main-banner banner text-center">
 	  <div class="container">    
 			<h1>Sell or Advertise   <span class="segment-heading">    anything online </span> with Resale</h1>
@@ -97,6 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<a href="{% url 'products:product_list' %}">View All Ads</a>
 	  </div>
 	</div>
+	{% endif %}
 		<!-- content-starts-here -->
 		{% block body%}
 
