@@ -27,6 +27,9 @@ urlpatterns = [
     path('accounts/', include(('accounts.urls', 'accounts'), namespace='accounts')),
     # redirect main page
     path('', views.home),
+    # when we use bellow import, we don't to need specify login, password_reset, etc. in accounts/urls.py
+    # we get default values from django.contrib.auth.urls
+    # path('accounts/', include('django.contrib.auth.urls'))
 ]
 
 # static files
