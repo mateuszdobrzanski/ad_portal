@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block extra_head_content %}
+    <meta http-equiv="refresh" content="3;url={% url 'products:home' %}" />
+{% endblock %}
+
+{% block body%}
+    <br>
+    <br>
+    <div class="container">
+        <h1>
+            You was logged out.
+            <small class="text-muted">You will be redirect to main page.</small>
+        </h1>
+    </div>
+    <br>
+    <br>
+{% endblock body %}
