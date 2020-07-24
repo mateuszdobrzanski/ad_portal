@@ -135,3 +135,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # after login, we are redirect to main page
 LOGIN_REDIRECT_URL = "/"
+
+
+# Console backend, instead of sending out real emails the console backend just writes the emails
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
