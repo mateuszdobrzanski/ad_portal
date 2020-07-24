@@ -28,11 +28,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <input type="submit" value="Log in">
 							</form>
 							<br>
-							<div class="signin-rit">
-								<span class="checkbox1">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked="">Forgot Password ?</label>
-								</span>
-								<p><a href="#">Click Here</a> </p>
+							<div class="new_people">
+								<p><a href="{% url 'accounts:password_reset' %}">Click Here, if you forgot login and password</a> </p>
 								<div class="clearfix"> </div>
 							</div>
 						</div>
