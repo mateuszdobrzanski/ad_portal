@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block body%}
+<div class="container">
+  <div id="page-wrapper" class="sign-in-wrapper">
+				<div class="graphs">
+					<div class="sign-in-form">
+<!--  <h2>Sign up</h2>-->
+<!--  <form method="post">-->
+<!--    {% csrf_token %}-->
+<!--      {% for field in form %}-->
+<!--      <p>-->
+<!--        {{ field.label_tag }}<br>-->
+<!--        {{ field }}-->
+
+<!--        {% for error in field.errors %}-->
+<!--          <p style="color: red">{{ error }}</p>-->
+<!--        {% endfor %}-->
+<!--      </p>-->
+<!--      {% endfor %}-->
+<!--    <button type="submit">Sign up</button>-->
+<!--  </form>-->
+
+
+      <div class="sign-in-form-top">
+          <h1>Sign up</h1>
+      </div>
+      <form method="POST">
+                {% csrf_token %}
+                <div class="log-input">
+                    <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" class="user" required="" id="id_username" placeholder="Your username">
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="log-input">
+                    <input type="text" name="email" autocomplete="email" autofocus="" autocapitalize="none" maxlength="254" class="user" required="" id="id_email" placeholder="Your Email">
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="log-input">
+                    <input type="password" class="lock" name="password1" autocomplete="current-password" required="" id="id_password1" placeholder="password">
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="log-input">
+                    <input type="password" class="lock" name="password2" autocomplete="current-password" required="" id="id_password2" placeholder="confirm password">
+                    <div class="clearfix"> </div>
+                </div>
+                <input type="submit" value="Sign up">
+                {% if form.errors %}
+                <br>
+                <div class="log-input">
+                    <div class="alert alert-danger" role="alert">
+                      Form is not valid!
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                {% endif %}
+            </form>
+                    </div>
+                </div>
+                    </div>
+{% endblock body %}

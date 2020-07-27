@@ -1,6 +1,7 @@
 from django.urls import path, reverse_lazy
 # from django.contrib.auth.views import LoginView
 from django.contrib.auth import views as auth_views
+from . import views
 
 # app_name = 'accounts'
 
@@ -27,7 +28,8 @@ urlpatterns = [
     ), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
-
-
+    # route to sign up new users
+    path('signup/', views.signup, name='signup'),
+    path('activate/<uidb64>/<token>/', views.activate, name='activate'),
 
 ]
