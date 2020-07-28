@@ -1,0 +1,30 @@
+.details {
+}
+
+.details .col-sm-12 {
+    margin:10px;
+}
+
+.details .content {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.details .content .form-control {
+    height: 50px;
+    border-radius:0;
+    font-size: 18px;
+    background-color: #eeeeee;
+    color: #FCF6F5FF;
+}
+
+.details .content .btn  {
+    min-height: 50px;
+    border-radius:0;
+    background: #01a185;
+    color: #fff;
+    font-weight:600;
+}

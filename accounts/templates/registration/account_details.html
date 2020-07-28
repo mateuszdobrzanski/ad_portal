@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block body%}
+<br>
+<br>
+<div class="container">
+    <h2>Account details</h2>
+    <br>
+    <div class="row">
+        <div class="col-5 col-md-4">
+            <div class="list-group">
+                <a href="{% url 'accounts:password_change' %}" class="list-group-item list-group-item-action ">Change password</a>
+                <a href="#" class="list-group-item list-group-item-action">Update account details</a>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <section class="details">
+            <div class="row">
+
+                {% if user.first_name %}
+                <div class="col-sm-12">
+                    <div class="content">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn disabled" type="submit">name</button>
+                        </span>
+                        <input class="form-control" placeholder="{{ user.first_name }}" readonly>
+                        </div>
+                    </div>
+                </div>
+                {% endif%}
+
+                {% if user.last_name %}
+                <div class="col-sm-12">
+                    <div class="content">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn disabled" type="submit">last name</button>
+                        </span>
+                        <input class="form-control" placeholder="{{ user.last_name }}" readonly>
+                        </div>
+                    </div>
+                </div>
+                {% endif%}
+
+                <div class="col-sm-12">
+                    <div class="content">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn disabled" type="submit">username</button>
+                        </span>
+                        <input class="form-control" placeholder="{{ user.username }}" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="content">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn disabled" type="submit">email</button>
+                        </span>
+                        <input class="form-control" placeholder="{{ user.email }}" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="content">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn disabled" >joined</button>
+                        </span>
+                        <input class="form-control" placeholder="{{ user.date_joined }} (with us: {{ date }} days)" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="content">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn disabled" type="submit">last login</button>
+                        </span>
+                        <input class="form-control" placeholder="{{ user.last_login }}" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+<br>
+{% endblock body %}

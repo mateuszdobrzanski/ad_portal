@@ -10,6 +10,7 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
+from datetime import date, datetime
 
 
 # here is signup form
@@ -62,6 +63,23 @@ def activate(request, uidb64, token):
 # show user profile
 @login_required(login_url="/accounts/login")
 def account_detail(request):
-    template = 'registration/account_detail.html'
+    # get logged user data
+    user = request.user
+
+    # here we count days from user signed up
+    # we must convert date (from var date_now) and delete info about timezone for user_join_date
+    user_join_date = user.date_joined
+    # delete information about timezone
+    user_join_date = user_join_date.replace(tzinfo=None)
+    # converting date
+    date_now = datetime.combine(date.today(), datetime.min.time())
+
+    diff_date = date_now - user_join_date
+    user_date = str(diff_date.days)
+
+    context = {'date': user_date}
+
+    template = 'registration/account_details.html'
     return render(request,
-                  template)
+                  template,
+                  context)

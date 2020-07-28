@@ -17,6 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
 <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/profile_info.css' %}" />
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -98,7 +99,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		</div>
 	</div>
-	{% if not request.get_full_path == "/accounts/login/" and not request.get_full_path == "/accounts/logout/" and not request.get_full_path == "/accounts/password_change/" and not request.get_full_path == "/accounts/password_change_done/" and not request.get_full_path == "/accounts/password_reset/" and not request.get_full_path == "/accounts/password_reset/done/" and not request.get_full_path == "/accounts/reset/Mw/set-password/" and not request.get_full_path == "/accounts/reset/done/" and not request.get_full_path == "/accounts/signup/" %}
+	<!-- Definitely I should fix that -->
+	{% if not request.get_full_path == "/accounts/login/" and not request.get_full_path == "/accounts/logout/" and not request.get_full_path == "/accounts/password_change/" and not request.get_full_path == "/accounts/password_change_done/" and not request.get_full_path == "/accounts/password_reset/" and not request.get_full_path == "/accounts/password_reset/done/" and not request.get_full_path == "/accounts/reset/Mw/set-password/" and not request.get_full_path == "/accounts/reset/done/" and not request.get_full_path == "/accounts/signup/" and not request.get_full_path == "/accounts/profile/" %}
 	<div class="main-banner banner text-center">
 	  <div class="container">    
 			<h1>Sell or Advertise   <span class="segment-heading">    anything online </span> with Resale</h1>
