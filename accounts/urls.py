@@ -9,7 +9,8 @@ urlpatterns = [
 
     # path('login/', LoginView.as_view(template_name='accounts/login.html'), name="login"),
     # changed login method, rename folder 'templates/accounts' to 'templates/registration'
-    path('login/', auth_views.LoginView.as_view(), name="login"),
+    # if user is authenticated, we will redirect user from login page to main site
+    path('login/', auth_views.LoginView.as_view(redirect_authenticated_user=True), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
 
     path('password_change/', auth_views.PasswordChangeView.as_view(), name="password_change"),
