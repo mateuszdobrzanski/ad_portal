@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
@@ -56,3 +57,11 @@ def activate(request, uidb64, token):
         return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+# show user profile
+@login_required(login_url="/accounts/login")
+def account_detail(request):
+    template = 'registration/account_detail.html'
+    return render(request,
+                  template)

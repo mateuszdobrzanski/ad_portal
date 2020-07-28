@@ -32,4 +32,7 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('activate/<uidb64>/<token>/', views.activate, name='activate'),
 
+    # account detail/ user profile
+    path('profile/', views.account_detail, name='account_profile')
+
 ]
