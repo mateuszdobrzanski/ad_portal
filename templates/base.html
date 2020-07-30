@@ -99,19 +99,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		</div>
 	</div>
-	<!-- Definitely I should fix that -->
-	{% if not request.get_full_path == "/accounts/login/" and not request.get_full_path == "/accounts/logout/" and not request.get_full_path == "/accounts/password_change/" and not request.get_full_path == "/accounts/password_change_done/" and not request.get_full_path == "/accounts/password_reset/" and not request.get_full_path == "/accounts/password_reset/done/" and not request.get_full_path == "/accounts/reset/Mw/set-password/" and not request.get_full_path == "/accounts/reset/done/" and not request.get_full_path == "/accounts/signup/" and not request.get_full_path == "/accounts/profile/" %}
-	<div class="main-banner banner text-center">
-	  <div class="container">    
-			<h1>Sell or Advertise   <span class="segment-heading">    anything online </span> with Resale</h1>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-			<a href="{% url 'products:product_list' %}">View All Ads</a>
-	  </div>
-	</div>
-	{% endif %}
+	<!-- bellow is header for main page -->
+	{% block main%}
+
+	{% endblock main %}
 		<!-- content-starts-here -->
 		{% block body%}
-
 
 		{% endblock body %}
 		<!--footer section start-->		

@@ -69,4 +69,4 @@ def product_detail(request, product_slug):
 
 def home(request):
     return render(request,
-                  'base.html')
+                  'home.html')
