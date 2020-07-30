@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block body%}
 
-<div class="container">
+
 <div id="page-wrapper" class="sign-in-wrapper">
+    <div class="container">
     <div class="graphs">
         <div class="sign-in-form">
             <div class="sign-in-form-top">
-                <h1>Sign up</h1>
+                <h1>Change account details</h1>
             </div>
             <form method="POST">
                 {% csrf_token %}
@@ -37,6 +38,7 @@
                 {% endif %}
             </form>
         </div>
+    </div>
     </div>
 </div>
 {% endblock body %}
