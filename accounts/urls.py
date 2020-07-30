@@ -34,6 +34,7 @@ urlpatterns = [
     path('activate/<uidb64>/<token>/', views.activate, name='activate'),
 
     # account detail/ user profile
-    path('profile/', views.account_detail, name='account_profile')
+    path('profile/', views.account_detail, name='account_profile'),
+    path('profile/change_details/', views.change_details, name='account_change_details')
 
 ]

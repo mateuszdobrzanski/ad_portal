@@ -83,3 +83,27 @@ def account_detail(request):
     return render(request,
                   template,
                   context)
+
+
+# change user details
+@login_required(login_url="/accounts/login")
+def change_details(request):
+    # get logged user data
+    user = request.user
+
+    if request.method == 'POST':
+        if request.POST['first_name'] and request.POST['last_name']:
+
+            user.first_name = request.POST['first_name']
+            user.last_name = request.POST['last_name']
+            user.save()
+            return redirect('/accounts/profile/')
+        else:
+            return render(request, 'registration/change_account_details.html', {'error': 'All fields are required'})
+
+    context = {'user': user}
+    template = 'registration/change_account_details.html'
+
+    return render(request,
+                  template,
+                  context)
