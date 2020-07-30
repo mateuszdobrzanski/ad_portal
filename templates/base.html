@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			} );
 		</script>
 </head>
-<body>
+<div>
 	<div class="header">
 		<div class="container">
 			<div class="logo">
@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		{% endblock body %}
 		<!--footer section start-->
 
-
+<div style="position: absolute; right: 0; bottom: 0; left: 0;">
 		<footer>
 			{% block footer %}
 
@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="footer-bottom text-center">
 			<div class="container">
 				<div class="footer-logo">
-					<a href="index.html"><span>Re</span>sale</a>
+					<a href="{% url 'products:home' %}"><span>Re</span>sale</a>
 				</div>
 				<div class="footer-social-icons">
 					<ul>
@@ -135,6 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		</footer>
+</div>
         <!--footer section end-->
 </body>
 </html>
